@@ -89,7 +89,6 @@ form.addEventListener("submit", (el) => {
     });
   }
 });
-
 function coloring(color4List, color2List) {
   document.querySelectorAll(".bch").forEach((el) => {
     if (!isNaN(Number(op)) && op <= 100 && op >= 20) el.style.opacity = op / 100.0;

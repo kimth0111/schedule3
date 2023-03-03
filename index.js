@@ -72,6 +72,18 @@ function draw() {
   const scheTr = document.querySelectorAll("#own-schedule tr");
   let now = new Date();
   let day = now.getDay();
+  const han =
+    //음악이면 1, 미술이면 2
+    [
+      ["1", "1", "C", "D", "A"],
+      ["B", "F", "2", "2", "D"],
+      ["F", "B", "D", "B", "2"],
+      ["C", "C", "A", "C", "F"],
+      ["1", "1", "F", "A", "창"],
+      ["E", "A", "2", "E", "창"],
+      ["E", "D", "B", "E", "창"],
+    ];
+
   scheTr.forEach((tr, i) => {
     if (i != 0) {
       const td = tr.querySelectorAll("td");
@@ -96,15 +108,24 @@ function draw() {
           //2단위라면
           if (a.length == 2) {
             a = a.replace("*", "");
-            if (true) {
-              let subH = list2[number][whatSet(2, a)];
-              const div = document.createElement("div");
-              div.innerHTML = subH + "<br/>" + "(" + whoTeacher(subH, whatSet(2, a)) + "T)";
-              div.title = "위치: " + where[whoTeacher(subH, whatSet(2, a))];
-              td.innerText = "";
-              td.append(div);
-              // if (day == j) td.classList.add("today");
+            let tch, wh, subH;
+            if (list2[number][whatSet(2, a)].includes("미감")) {
+              subH = han[i - 1][j - 1] === 2 ? "미술" : "한국사";
+              tch = han[i - 1][j - 1] === 2 ? "홍현숙" : " 한우진";
+            } else if (list2[number][whatSet(2, a)].includes("음감")) {
+              subH = han[i - 1][j - 1] === 1 ? "음감" : "한국사";
+              tch = han[i - 1][j - 1] === 1 ? "김현주" : " 한우진";
+            } else {
+              subH = list2[number][whatSet(2, a)];
+              tch = whoTeacher(subH, whatSet(2, a));
+              wh = where[whoTeacher(subH, whatSet(2, a))];
             }
+            const div = document.createElement("div");
+            div.innerHTML = subH + "<br/>" + "(" + tch + "T)";
+            div.title = "위치: " + wh;
+            td.innerText = "";
+            td.append(div);
+            // if (day == j) td.classList.add("today");
             td.classList.add(a + a);
           }
         }
@@ -117,7 +138,7 @@ function whoTeacher(sub, set) {
   if (teacher[sub]) return teacher[sub];
   if (teacher[sub + set]) return teacher[sub + set];
   console.log(number, "errrrrorrrrr", sub, set);
-  return undefined;
+  return "?";
 }
 
 // Object.keys(list4).forEach((key) => {
