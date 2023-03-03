@@ -110,11 +110,12 @@ function draw() {
             a = a.replace("*", "");
             let tch, wh, subH;
             if (list2[number][whatSet(2, a)].includes("미감")) {
-              subH = han[i - 1][j - 1] === 2 ? "미술" : "한국사";
-              tch = han[i - 1][j - 1] === 2 ? "홍현숙" : " 한우진";
+              console.log(han[i - 1][j - 1], han[i - 1][j - 1] === 2 ? "미술" : "한국사");
+              subH = han[i - 1][j - 1] == 2 ? "미술" : "한국사";
+              tch = han[i - 1][j - 1] == 2 ? "홍현숙" : " 한우진";
             } else if (list2[number][whatSet(2, a)].includes("음감")) {
-              subH = han[i - 1][j - 1] === 1 ? "음감" : "한국사";
-              tch = han[i - 1][j - 1] === 1 ? "김현주" : " 한우진";
+              subH = han[i - 1][j - 1] == 1 ? "음감" : "한국사";
+              tch = han[i - 1][j - 1] == 1 ? "김현주" : " 한우진";
             } else {
               subH = list2[number][whatSet(2, a)];
               tch = whoTeacher(subH, whatSet(2, a));
