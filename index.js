@@ -10,7 +10,7 @@ const schedule = [
 let number = localStorage.getItem("number") | "";
 if (list4[number]) {
   draw();
-  document.querySelector("#back").style.backgroundImage = "url(" + number + ".jpg" + ")";
+  document.querySelector("#back").style.backgroundImage = "url(" + "img/" + number + ".jpg" + ")";
 }
 document.querySelector("form").addEventListener("submit", (el) => {
   el.preventDefault();
@@ -120,10 +120,10 @@ function whoTeacher(sub, set) {
   return undefined;
 }
 
-Object.keys(list4).forEach((key) => {
-  number = key;
-  draw();
-});
+// Object.keys(list4).forEach((key) => {
+//   number = key;
+//   draw();
+// });
 
 const remainTime = document.querySelector("#hi");
 
