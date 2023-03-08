@@ -4,8 +4,8 @@ const schedule = [
   ["F", "B", "D", "B", "C*"],
   ["C", "C", "A", "C", "F"],
   ["B*", "C*", "F", "A", "창"],
-  ["E", "A", "D*", "E", "창"],
-  ["E", "D", "B", "E", "창"],
+  ["E", "A", "B", "E", "창"],
+  ["E", "D", "D*", "E", "창"],
 ];
 let number = localStorage.getItem("number") | "";
 if (list4[number]) {
