@@ -156,7 +156,11 @@ function diffDay() {
   }
   const todayTime = new Date();
 
-  const diff = masTime - todayTime;
+  let diff = masTime - todayTime;
+  if(diff<0){
+    masTime = new Date("2023-6-1");
+    diff = masTime - todayTime;
+  }
 
   const diffDay = Math.floor(diff / (1000 * 60 * 60 * 24));
   const diffHour = Math.floor((diff / (1000 * 60 * 60)) % 24);
