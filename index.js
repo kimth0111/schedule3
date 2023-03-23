@@ -149,9 +149,38 @@ function whoTeacher(sub, set) {
 
 const remainTime = document.querySelector("#hi");
 
+
+let temp;
+let myung;
+
+fetch(
+	  "https://api.qwer.pw/request/hangang_temp?apikey=guest" 
+	)
+  .then((res) => res.json()) // 응답 데이터를 json화
+  .then((myJson) => {
+      temp = myJson[1].respond.temp
+  });	
+fetch(
+	  "https://api.qwer.pw/request/hangang_temp?apikey=guest" 
+	)
+  .then((res) => res.json()) // 응답 데이터를 json화
+  .then((myJson) => {
+      console.log(myJson[1].respond.temp)
+  });	
+fetch(
+	  "https://api.qwer.pw/request/helpful_text?apikey=guest" 
+	)
+  .then((res) => res.json()) // 응답 데이터를 json화
+  .then((myJson) => {
+      myung = myJson[1].respond;
+  document.querySelector("body > div:nth-child(4) > div > div > div.container > div:nth-child(4) > span").innerHTML = myung
+  });	
+
+
+
 function diffDay() {
   let masTime = new Date("2023-3-23");
-  if (number == 20807) {
+  if (number == 30507) {
     masTime = new Date("2023-7-31");
   }
   const todayTime = new Date();
@@ -168,10 +197,10 @@ function diffDay() {
   const diffSec = Math.floor((diff / 1000) % 60);
   const diffMS = Math.floor((diff / 100) % 60);
 
-  if (number == 20807) {
+  if (number == 30507) {
     remainTime.innerText = `사관까지 ${diffDay}일${diffHour}시간${diffMin}분${diffSec}초`;
   } else {
-    remainTime.innerText = `3모까지 ${diffDay}일${diffHour}시간${diffMin}분${diffSec}초`;
+    remainTime.innerText = `6모까지 ${diffDay}일${diffHour}시간${diffMin}분${diffSec}초   오늘의 온도는 ${temp}.....`;
   }
 }
 
