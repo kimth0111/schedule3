@@ -173,7 +173,7 @@ fetch(
   .then((res) => res.json()) // 응답 데이터를 json화
   .then((myJson) => {
       myung = myJson[1].respond;
-  document.querySelector("body > div:nth-child(4) > div > div > div.container > div:nth-child(4) > span").innerHTML = myung
+  document.querySelector("body > div:nth-child(4) > div > div > div.container > div:nth-child(4) > div").innerHTML = myung
   });	
 
 
