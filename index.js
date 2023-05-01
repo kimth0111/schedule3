@@ -187,7 +187,7 @@ function diffDay() {
 
   let diff = masTime - todayTime;
   if(diff<0){
-    masTime = new Date("2023-4-26");
+    masTime = new Date("2023-6-01");
     diff = masTime - todayTime;
   }
 
@@ -200,7 +200,7 @@ function diffDay() {
   if (number == 30507) {
     remainTime.innerText = `사관까지 ${diffDay}일${diffHour}시간${diffMin}분${diffSec}초`;
   } else {
-    remainTime.innerText = `기말까지 ${diffDay}일${diffHour}시간${diffMin}분${diffSec}초 // 오늘의 온도는 ${temp}ºC.....`;
+    remainTime.innerText = `6모까지 ${diffDay}일${diffHour}시간${diffMin}분${diffSec}초 // 오늘의 온도는 ${temp}ºC.....`;
   }
 }
 
