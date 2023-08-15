@@ -1,3 +1,4 @@
+location.href ="https://dgweb.onrender.com/schedule"
 const schedule = [
   ["A*", "D*", "C", "D", "A"],
   ["B", "F", "B*", "A*", "D"],
